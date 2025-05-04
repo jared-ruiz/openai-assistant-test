@@ -1,22 +1,22 @@
 # Learning Log 📚 (WIP)
 ### General Project Goals
-- Scrape articles from OptiSigns website utilzing python
-- Build assistnat, upload markdown files into OpenAI's vector store via OpenAI API
-- Deploy scrapper and dockerize it
+- Scrape articles from OptiSigns website utilizing python
+- Build assistant, upload markdown files into OpenAI's vector store via OpenAI API
+- Deploy scraper and dockerize it
 
 ### Personal Thoughts Before Project
-- Prior to recieving this assignment, I had never worked with the OpenAI API at all, never touched Docker besides a few simple tasks required of me at my current work, and have not worked with Python that frequently due to my focus on MERN stack web development. This entire task posed a great challenge for me. I was gratiously alloted 2 weeks to work on this assignment after my normal 9-5 hours and my goal is to do my absolute best, learn as fast and efficiently as possible and hopefully get a solid attempt in on this project.
+- Prior to receiving this assignment, I had never worked with the OpenAI API at all, never touched Docker besides a few simple tasks required of me at my current work, and have not worked with Python that frequently due to my focus on MERN stack web development. This entire task posed a great challenge for me. I was graciously alloted 2 weeks to work on this assignment after my normal 9-5 hours and my goal is to do my absolute best, learn as fast and efficiently as possible and hopefully get a solid attempt in on this project.
 
 ### Bare Minimum Expectations
 - Project plan
 
 - Learn the tools
 
-- Demonstrate my commitment to problem solving within a time sensetive enviornment
+- Demonstrate my commitment to problem solving within a time sensitive environment
 
 ## Day 0 - Rubber Ducking 🦆
 
-I begin my journey with a lot of questions and I mean <strong>ALOT</strong> of questions. My current work is within government contracting cyber security, and my coworker and friend is a seasoned software engineer making a big impact at the company. I was able to find some time to ask 1 thing.
+I begin my journey with a lot of questions and I mean <strong>A LOT</strong> of questions. My current work is within government contracting cyber security, and my coworker and friend is a seasoned software engineer making a big impact at the company. I was able to find some time to ask 1 thing.
 
 1. What is Docker?
 > I had a general understanding based on the work we do, but I wanted to see if my coworker has a good way of describing it's use cases and key features to help make it click in my head.
@@ -24,33 +24,33 @@ I begin my journey with a lot of questions and I mean <strong>ALOT</strong> of q
 After our discussion, my understanding was that Docker aimed to solve the industry problem of: 
 -  "It works on my machine, it should work on yours"
 
-It reminded me of virutal machines, and how you can utilize any OS and load the instance with whatever you need to develop on (dependencies, users, networking specifics, etc.), and even turn that VM into a distributable copy for others to utilize at their discretion. 
+It reminded me of virtual machines, and how you can utilize any OS and load the instance with whatever you need to develop on (dependencies, users, networking specifics, etc.), and even turn that VM into a distributable copy for others to utilize at their discretion. 
 
 As per the Docker Website:
 ``` A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.```
 <br> > [Docker: What Are Containers?](https://www.docker.com/resources/what-container/)
 
-This revalation was very interesting to me. This allows everyone to be able to develop on the same working version of a particular application without the fear of running into frequent compatability issues. Perfect. Now how do I incorporate that into my project?
+This revelation was very interesting to me. This allows everyone to be able to develop on the same working version of a particular application without the fear of running into frequent compatibility issues. Perfect. Now how do I incorporate that into my project?
 
 Realistically, I would want to wait until my web scrapper is complete before I Dockerize it, but I could move on to learning how to work with Python and Web Scrapping, get something simple going and then practice Dockerizing that? I believe extrapolating the objective into pieces would be good for me and my learning so I will do just that.
 
 
 ## Day 1 - Python and Web Scrapping 101 🖥️
 
-My previous experience with web scrapping was probably back when I was in college and my friend and I wanted a way to pull data off of our favorite gaming website to see our hiscores update daily. I had no coding experience besides some exposure to C through Harvards free online course and I was not able to fully implement my vision.
+My previous experience with web scrapping was probably back when I was in college and my friend and I wanted a way to pull data off of our favorite gaming website to see our hiscores update daily. I had no coding experience besides some exposure to C through Harvard's free online course and I was not able to fully implement my vision.
 
 Fast forward today, where I have soley been focusing on web development and digital marketing, so this serves to be a fun and challenging reintroduction to what I had originally wanted to learn many years back.
 
 ### Learning Process Begins
 
-- I've been learning my entire life and the way I have always approached new topics or proejcts is to watch others either build something I am interested in, or explain to me with visuals. I am a very visually guided learner. I turned to YouTube and introduced the topic to myself with this video 
+- I've been learning my entire life and the way I have always approached new topics or projects is to watch others either build something I am interested in, or explain to me with visuals. I am a very visually guided learner. I turned to YouTube and introduced the topic to myself with this video 
 <br> > [Beginners Guide To Web Scraping with Python - All You Need To Know](https://youtu.be/QhD015WUMxE?si=LqAna1kFAnqY-k3q)
 
 - Before attempting to scrape the [support.optisigns.com](https://support.optisigns.com/hc/en-us), I wanted to do some tests and document my results. I'm going to attempt and scrape some simple websites and return a markdown version of the content without issue, then build up to the desired 30+ amount requested in the instructions.
 
-- I first created my python file titled <strong>webscraper.py</strong>, and set up my virtual enviornment. I already knew that it would be much more organized and convenient to have a requirements.txt accompanied with it easy cloning and use on the user's end.  
+- I first created my python file titled <strong>webscraper.py</strong>, and set up my virtual environment. I already knew that it would be much more organized and convenient to have a requirements.txt accompanied with it easy cloning and use on the user's end.  
 
-### Notes for Virtual Enviornment Management
+### Notes for Virtual Environment Management
 > <strong>Activating virtual enviornment:</strong> env\Scripts\activate
 <br>
 > <strong>Deactivating virtual enviornment:</strong> deactivate
@@ -80,10 +80,10 @@ I also thought ahead in finding a library that would help me translate the retur
 
 - After an hour or so of research and trial and error, it seems requests is not able to get the correct information from the website. It seems it's because OptiSigns is using a dynamically rendered site that simply does not allow requests to function on it's own. A stack overflow post suggests "selenium" to scrape the page but I decided to explore the option presented in the instructions utilizing Zendesk. With some work, I was able to return an array of article objects from OptiSigns zendesk api and that really helped me click things in my head. I havent done a lot of API calls with python so I would need to look up the structure online, which shouldn't be too far off from javascript's syntax.
 
-- I read through this [python api tutorial](https://www.geeksforgeeks.org/how-to-make-api-calls-using-python/) and structured my initial test similarlly. I was able to return a lot of article data from the API endpoint and now that I know there is successfull content being reached, I can figure out how to parse it and organize it properly. I'm imagining I can loop through the array of objects and somehow turn them into .md files with each pass.
+- I read through this [python api tutorial](https://www.geeksforgeeks.org/how-to-make-api-calls-using-python/) and structured my initial test similarly. I was able to return a lot of article data from the API endpoint and now that I know there is successful content being reached, I can figure out how to parse it and organize it properly. I'm imagining I can loop through the array of objects and somehow turn them into .md files with each pass.
 
-- I took some time reviewing dictioanry handling with python and I was able to return all the article infomration I needed but it was loaded with HTML elements. So I got to return to what I was originally studying and use beautiful soup to remove the html elements and return plain text. This site helped me review some of my dictionary questions. [W3School] (https://www.w3schools.com/python/python_dictionaries_access.asp)
+- I took some time reviewing dictionary handling with python and I was able to return all the article information I needed but it was loaded with HTML elements. So I got to return to what I was originally studying and use beautiful soup to remove the html elements and return plain text. This site helped me review some of my dictionary questions. [W3School] (https://www.w3schools.com/python/python_dictionaries_access.asp)
 
 ### End of Day 1 - Thoughts 💡
 
-This was a very eventful day of studying and trial and error. I believe I had over 30 tabs open trying to search for all sorts of solutions to questions I had. Lots of visits to disucssion boards, youtube videos, and more. I am ending the day with my webscraper not necessasrily scraping a static website anymore, but pulling article data from an available API via OptiSign and Zendesk, parsing it's json data for all the info I need and returning it via terminal output. I will try and see how I can use existing libraries to create a directory within my project folder and output individual markdown files for each article. That would be a good next milestone. There are instructions to keep relative links, code blocks and heading and just remove navs and ads. There is bound to be something within the beautiful soup documentation to remove those items, or maybe through other means as well. 
+This was a very eventful day of studying and trial and error. I believe I had over 30 tabs open trying to search for all sorts of solutions to questions I had. Lots of visits to discussion boards, youtube videos, and more. I am ending the day with my web scraper not necessarily scraping a static website anymore, but pulling article data from an available API via OptiSign and Zendesk, parsing it's json data for all the info I need and returning it via terminal output. I will try and see how I can use existing libraries to create a directory within my project folder and output individual markdown files for each article. That would be a good next milestone. There are instructions to keep relative links, code blocks and heading and just remove navs and ads. There is bound to be something within the beautiful soup documentation to remove those items, or maybe through other means as well. 

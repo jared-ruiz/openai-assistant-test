@@ -131,3 +131,28 @@ The video focused on the <strong>os module</Strong> which allows you to interact
 I initially placed the makedirs() function in the loop but quickly realized it would want to create a new directory every loop and cause a lot of issues. I opted to place the directory creation right after returning the dictionary of articles, then go into the key value verification and begin returning the data.
 
 I managed to successfully create a directory titled "optisigns_articles" upon running. Big step toward writing markdown files into them.
+
+### Dependencies Used
+- <Strong>slugify:</Strong> returns a text into one long word containing nothing but lower case ASCII characters and hyphens (-) 
+
+#### I ended up installing this module due to the recommendations of these threads:
+
+> [Turn a string into a valid filename?](https://stackoverflow.com/questions/295135/turn-a-string-into-a-valid-filename)
+<br>
+> [String slugification in Python](https://stackoverflow.com/questions/5574042/string-slugification-in-python)
+
+I kept running into a <Strong>"FileNotFoundError:[Errno 2] No such file or directory"</Strong> error and after thinking of what the problem could be, I wondered if the characters being returned from my function were just not allowing it to write. What I learned was that a slug or just slugify as a module has existed for a while to simplify text for ease handling in situations like these. It seems I could have made my own slugify function and just use REGEX to remove the article title characters I wanted, but luckily there was a simple library to help.
+
+### Markdown Files Successfully Generated
+- I have finally reached a point where I am successfully pulling 30 articles from the API provided, retrieving the title and body key value pairs from each article within the article dictionary, sanitizing the titles for optimal file generation, creating a directory and placing each article into it's own markdown file within said directory. 
+- I'm incredible happy with the progress I have made. I have had to pour over a lot of material to get where I am now but I am learning quite a lot about and my reintroduction into python has been very pleasant. 
+
+### Next Steps
+
+- One portion of the assignment is complete technically. I still need to learn docker, and to determine how to utilize the OpenAI integration that is requested, but I am closing in on the completion of this assignment. 
+
+- Upon reading the next requirements, I need to somehow send my markdown files to a Vector Store. I will need to do some research on what that is and how I can manage that. I imagine it's similar to sending data back to the frontend in web development via POST request but I'll learn.
+
+### End of Day 2 - Thoughts 💡
+
+This was a very fulfilling day of learning. I got to utilize slugify and markdownify finally, and I managed to break through a wall I was hitting for an hour or so through research and a lot of questioning. Seeing the articles populate in my project directory felt very cathartic, I can't deny that. I really enjoy solving these problems I am facing. There are a lot of resources online and a lot of advice to follow when stuck and it truly feels like I can accomplish anything given enough time to organize my thoughts, approach the problem from different angles, and really focus. I'm excited to be approaching the midway point of this assignment and I hope to get it done soon for submission! I have been working with React and JSX a lot lately so touching python has been refreshing. I love the simple syntax and the libraries are incredibly useful. Knowing which ones to use on the other hand, requires a lot of research but I'm sure that comes with time and varying use cases. 

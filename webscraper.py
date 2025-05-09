@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import markdownify
 import os
+import slugify
 
 # create plain text of soup data
 def html_to_text(html_text):
@@ -34,14 +35,22 @@ def main():
     
     # create directory for articles 
     directory_name = "optisigns_articles"
-    os.makedirs(directory_name)
+    os.makedirs(directory_name, exist_ok=True)
 
-    # this checks to see if there is actually a dictionary returned and it contains the article key too
+    # this checks to see if there is actually a dictionary returned and it contains the article key too. Should loop 30 times minimum
     if article_data and "articles" in article_data:
         for article in article_data["articles"]:
-            article_html_body = article["body"]
-            article_body = html_to_text(article_html_body)
-            print(article_body)
+            article_title = article["title"]
+            article_body = article["body"]
+            markdownBody = markdownify.markdownify(article_body)
+            
+            # create file path to save the below created file to - use created directory + file name
+            title = slugify.slugify(article_title)
+            file_path = os.path.join(directory_name, title + '.md')
+            
+            # assign title to md file name and body written onto file
+            with open(file_path, "w", encoding="utf-8") as article:
+                article.write(markdownBody)
     
     else:
         print("No articles found")

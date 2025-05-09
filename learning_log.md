@@ -43,7 +43,7 @@ Fast forward today, where I have soley been focusing on web development and digi
 
 ### Learning Process Begins
 
-- I've been learning my entire life and the way I have always approached new topics or projects is to watch others either build something I am interested in, or explain to me with visuals. I am a very visually guided learner. I turned to YouTube and introduced the topic to myself with this video 
+- I've been learning my entire life and the way I have always approached new topics or projects is to watch others either build something I am interested in, or explain it to me with visuals. I am a very visually guided learner. I turned to YouTube and introduced the topic to myself with this video:
 <br> > [Beginners Guide To Web Scraping with Python - All You Need To Know](https://youtu.be/QhD015WUMxE?si=LqAna1kFAnqY-k3q)
 
 - Before attempting to scrape the [support.optisigns.com](https://support.optisigns.com/hc/en-us), I wanted to do some tests and document my results. I'm going to attempt and scrape some simple websites and return a markdown version of the content without issue, then build up to the desired 30+ amount requested in the instructions.
@@ -87,3 +87,47 @@ I also thought ahead in finding a library that would help me translate the retur
 ### End of Day 1 - Thoughts 💡
 
 This was a very eventful day of studying and trial and error. I believe I had over 30 tabs open trying to search for all sorts of solutions to questions I had. Lots of visits to discussion boards, youtube videos, and more. I am ending the day with my web scraper not necessarily scraping a static website anymore, but pulling article data from an available API via OptiSign and Zendesk, parsing it's json data for all the info I need and returning it via terminal output. I will try and see how I can use existing libraries to create a directory within my project folder and output individual markdown files for each article. That would be a good next milestone. There are instructions to keep relative links, code blocks and heading and just remove navs and ads. There is bound to be something within the beautiful soup documentation to remove those items, or maybe through other means as well. 
+
+## Day 2 - Creating and Writing to New Directories Via Python ✏️
+
+Picking up from my previous development day, I want to continue exploring the potential solution of using this API to pull all the 30+ articles I need, creating a new directory, and writing each article into it's own .MD file within it. I've seen it done via JavaScript before in my 4 years being exposed to the language, and I assume it's very similar. I will begin researching if there is a library that handles this function or if it needs to be hardcoded into the function. I will also begin researching how to utilize markdownify to turn the html page into markdown files. 
+
+### Goals for Today
+
+- Confirm the correct information is being returned from my api call
+- Learn how to create and write to a new directory via Python
+- Learn how to turn each article into a markdown file and place each into the designated directory with unique naming schemes for each <strong>(i.e 0_article.md - 29_article.md)</strong>
+
+> [Refer to Virtual Environment Management Notes Before Beginning Development](#notes-for-virtual-environment-management)
+
+### Creating Directories Via Python
+
+The first step I feel I need to be able to do is upon data acquisition, I need to create a named directory to house the markdown files. I introduced this topic to myself through this video
+> [Python Tutorial #36 - Directory & File Management in Python Programming](https://youtu.be/-Z5nWDtSkPc?si=BHBDy7PXl-RCkHsy)
+<br>
+
+The video focused on the <strong>os module</Strong> which allows you to interact with the operating system, which is exactly what we need for this step.
+> [W3 Schools: Python os Module ](https://www.w3schools.com/python/module_os.asp)
+<br>
+
+### os File Handling
+
+ - <Strong>open() Function:</Strong> Function takes two parameters, <ins> filename and mode.</ins> 
+ <br>
+ - <Strong>makedirs() Function:</Strong> Creates a directory recursively
+> [Python File Handling](https://www.w3schools.com/python/python_file_handling.asp)
+<br>
+
+ 4 Methods for Opening Files: 
+
+> "r" - Read - Default value. Opens a file for reading, error if the file does not exist
+<br>
+> "a" - Append - will create a file if the specified file does not exist
+<br>
+> "x" - Create - will create a file, returns an error if the file exists
+<br>
+> "w" - Write - will create a file if the specified file does no exist 
+
+I initially placed the makedirs() function in the loop but quickly realized it would want to create a new directory every loop and cause a lot of issues. I opted to place the directory creation right after returning the dictionary of articles, then go into the key value verification and begin returning the data.
+
+I managed to successfully create a directory titled "optisigns_articles" upon running. Big step toward writing markdown files into them.

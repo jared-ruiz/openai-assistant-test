@@ -1,11 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
 import markdownify
+import os
 
 # create plain text of soup data
 def html_to_text(html_text):
     soup = BeautifulSoup(html_text, "html.parser")
-    return soup.get_text(strip=True)
+    # return soup.get_text(strip=True)
+    return soup
 
 # return article data from open API endpoint
 def get_articles(): 
@@ -27,15 +29,20 @@ def get_articles():
         return None
     
 def main():
-    #returns dictionary to then parse through each article and it's key value paies
-    item = get_articles()
+    # returns dictionary to then parse through each article and it's key value pairs
+    article_data = get_articles()
+    
+    # create directory for articles 
+    directory_name = "optisigns_articles"
+    os.makedirs(directory_name)
 
     # this checks to see if there is actually a dictionary returned and it contains the article key too
-    if item and "articles" in item:
-        for article in item["articles"]:
+    if article_data and "articles" in article_data:
+        for article in article_data["articles"]:
             article_html_body = article["body"]
             article_body = html_to_text(article_html_body)
             print(article_body)
+    
     else:
         print("No articles found")
     

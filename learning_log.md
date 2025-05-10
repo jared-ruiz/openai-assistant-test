@@ -156,3 +156,44 @@ I kept running into a <Strong>"FileNotFoundError:[Errno 2] No such file or direc
 ### End of Day 2 - Thoughts 💡
 
 This was a very fulfilling day of learning. I got to utilize slugify and markdownify finally, and I managed to break through a wall I was hitting for an hour or so through research and a lot of questioning. Seeing the articles populate in my project directory felt very cathartic, I can't deny that. I really enjoy solving these problems I am facing. There are a lot of resources online and a lot of advice to follow when stuck and it truly feels like I can accomplish anything given enough time to organize my thoughts, approach the problem from different angles, and really focus. I'm excited to be approaching the midway point of this assignment and I hope to get it done soon for submission! I have been working with React and JSX a lot lately so touching python has been refreshing. I love the simple syntax and the libraries are incredibly useful. Knowing which ones to use on the other hand, requires a lot of research but I'm sure that comes with time and varying use cases. 
+
+## Day 3 - OpenAI Vector Store
+Today I am beginning my introduction to OpenAI's Assistant feature. I began by following the link provided in the instructions and upgraded to the paid tier for this instance only. I have never utilized this service or any of the paid features OpenAI has offered so I needed some time to read through what this specific feature does and how to get the solution I need. 
+
+### Initial Learning
+I spent some time reviewing the documentation on the OpenAI website, look through the [File Upload](https://platform.openai.com/docs/api-reference/files/create) section and the [Vector Store](https://platform.openai.com/docs/api-reference/vector-stores) section. 
+
+I saw a code block for a POST request made to the API:
+
+```
+from openai import OpenAI
+client = OpenAI()
+
+client.files.create(
+  file=open("mydata.jsonl", "rb"),
+  purpose="fine-tune"
+)
+```
+with a response of:
+
+```
+{
+  "id": "file-abc123",
+  "object": "file",
+  "bytes": 120000,
+  "created_at": 1677610602,
+  "filename": "mydata.jsonl",
+  "purpose": "fine-tune",
+}
+```
+
+In order for this application to work, I will have to create a .env file and house my OpenAI API key within it but remember to use a gitignore before pushing so keep the key hidden. I have experience with this since a lot of my web development classes involved protecting the api credentials.
+
+I created a <Strong>.gitignore</Strong> file and a <Strong>.env</Strong> at root. I will add in the readme instruction for the user to create their own .env and add their own api key to get things working.
+
+### Dependencies Used
+- <Strong>openai</Strong>: provides convenient access to the <ins>OpenAI REST API</ins> from any Python 3.8+ application. The library includes type definitions for all request params and response fields, and offers both synchronous and asynchronous clients powered by httpx
+> [openai Library Information](https://pypi.org/project/openai/)
+
+
+

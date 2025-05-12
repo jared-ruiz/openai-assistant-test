@@ -195,5 +195,45 @@ I created a <Strong>.gitignore</Strong> file and a <Strong>.env</Strong> at root
 - <Strong>openai</Strong>: provides convenient access to the <ins>OpenAI REST API</ins> from any Python 3.8+ application. The library includes type definitions for all request params and response fields, and offers both synchronous and asynchronous clients powered by httpx
 > [openai Library Information](https://pypi.org/project/openai/)
 
+- <Strong>python-dotenv</Strong>: reads key-value pairs from a .env file and can set them as environment variables. It helps in the development of applications following the 12-factor principles.
+> [python-dotenv](https://pypi.org/project/python-dotenv/)
 
+### OpenAI API 
+I spent quite a bit of time reviewing the api documentation and looking online for an example that best matches my use case but it was very difficult. My unfamiliarity with OpenAI API services and chatbots in general was really on full display during this period of time. I followed along with the boiler plate file search documentation to get a decent start.
+
+I knew I wanted a way to parse through my newly created file structure and upload each individual markdown file into the vector store somehow, so I took a detour and looked into that. I utilized this website to get an idea of how to do that with python and it seems I can use the <ins>os</ins> module and loop with the listdir() method
+> [Iterate Over Files Using os.listdir()](https://www.geeksforgeeks.org/python-loop-through-folders-and-files-in-directory/)
+
+I then needed the syntax for uploading individual files to my newly created vector store, so I explored this particular video detailing how to do one single file at a time
+> [OpenAI Assistnat File Search & Vector Store Feature Using Python | Generative AI](https://www.youtube.com/watch?v=JGMG1mXaY1c)
+
+It took a lot of videos to really understand what is going on and what the necessary steps were. The documentation helped too but I really thrive on visual learning so with the video above and this one as well, [Mastering File Uploads with the OpenAI API: A Step-by-Step Guide](https://youtu.be/hXVcc4AjA0g?si=nwqzVGfm4ZNHJDRx), I was able to successfully:
+
+- Create a script to initially setup an OpenAI assistant with the prerequisite information provided to me.
+
+- Create another script to run the assistant and initialize a vector store, upload my markdown files to the vector store, and then return the vector store ID for use in the next script (testing only)
+
+- Delete vector store to test assistant creation process multiple times before finalizing
+> [Delete Vector Store](https://platform.openai.com/docs/api-reference/vector-stores/delete)
+
+Here is the result of my hours and hours of work:
+
+![OptiSigns Assistant Screencap: Success](./assets/images/OptiSigns_Assistant_Success_Screencapture.png)
+
+The assistant successfully took the prompt that I was given and outputted the correct information utilizing the article data I had uploaded. This was an incredible win for me and the catharsis of seeing it work made the hours and hours of work feel worth it. I learned so much about OpenAI that I never knew about, and got to work with python more which has been a delight so far.
+
+For chunking, I decided to keep the strategy at auto, which from the documentation, allots a <ins>max_chunk_size_tokens</ins> of 800 and <ins>chunk_overlap_tokens</ins> of 400. I believe if I was handling a very large set of data, I would need to be more mindful of this strategy and potential chunk up my input files before batching and uploading.
+
+I ran into an issue where the information being parsed did not output the correct information when asked about the youtube prompt. I tried removing the instructions I gave it and it worked first try again. I'm hoping that my instructions were limiting the assistant's ability to provide the information and that this is a full fix. Here is test 2 for verification:
+
+![OptiSigns Assistant Success Screenshot 02](./assets/images/OptiSigns_Assistnat_Screencapture_02.png)
+
+### End of Day 3 - Thoughts 💡
+
+This was probably the most challenging portion of my project. I had zero idea how to approach this. It took a lot of spin up time, documentation, and video after video to feel solid enough to move forward. This was a demonstration of resourcefulness I believe. There are so many resources online, even ChatGPT itself to help clarify and nudge you in the right direction.
+I learned that this project would really be even more fruitful if I had pull all 400+ articles but I was afraid of incurring a high cost with the tokens I've been alloted from the OpenAI pay as you go subscription. 
+
+Now that this works, I will have to learn docker and create a way for it to follow all my steps for installation and testing so that it can run on your machine!
+
+I'm almost to the end and I'm so excited! Docker here I come.
 

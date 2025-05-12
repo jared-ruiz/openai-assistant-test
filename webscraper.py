@@ -1,14 +1,7 @@
-from bs4 import BeautifulSoup
 import requests
 import markdownify
 import os
 import slugify
-
-# create plain text of soup data
-def html_to_text(html_text):
-    soup = BeautifulSoup(html_text, "html.parser")
-    # return soup.get_text(strip=True)
-    return soup
 
 # return article data from open API endpoint
 def get_articles(): 
@@ -29,7 +22,7 @@ def get_articles():
         print("Error:", e)
         return None
     
-def main():
+def article_Markdown():
     # returns dictionary to then parse through each article and it's key value pairs
     article_data = get_articles()
     
@@ -54,5 +47,3 @@ def main():
     
     else:
         print("No articles found")
-    
-main()

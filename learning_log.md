@@ -1,4 +1,4 @@
-# Learning Log 📚 (WIP)
+# Learning Log 📚
 ### General Project Goals
 - Scrape articles from OptiSigns website utilizing python
 - Build assistant, upload markdown files into OpenAI's vector store via OpenAI API
@@ -236,4 +236,65 @@ I learned that this project would really be even more fruitful if I had pull all
 Now that this works, I will have to learn docker and create a way for it to follow all my steps for installation and testing so that it can run on your machine!
 
 I'm almost to the end and I'm so excited! Docker here I come.
+
+## Day 4 - Docker and the Finish Line 🎃
+
+### Goals for Today
+- Learn how to implement Docker into my project
+- Create docker file to delete current optisigns_article directory and remove existing vector stores
+- Finish project and document installation via README.md
+
+### How to Add Docker to Project
+My first exposure to Docker was through my current work but it was only to assist with some test recordings and I had help from a tech lead who was very gracious with his help. I wanted to get a full run down on the service and how it can help me so I watched this video to start.
+[How to containerize Python applications with Docker](https://youtu.be/0UG2x2iWerk?si=HpouYSUpc2b8rfp3)
+
+I learned about:
+
+- Docker Images 
+- Docker Containers
+- Dockerfiles
+- Base Imaging
+- ENV, ADD, RUN variables
+- requirements.txt
+
+I was very surprised at how streamlined things felt
+
+I decided to test what I currently have by running the boiler plate:
+
+```
+docker build -t optisigns_test .
+```
+
+and 
+
+```
+docker run optisigns_test
+```
+
+I immediately hit a road block with my python scripts. I initially was not creating them as function and simply as entire files to just be ran in command line. I had to systematically go back and adjust my work to allow for a main.py function to run everything I needed in one go. I revisited my assistant_create.py file and returned it's assistant_id to then pass into the assistant_run.py and so on. Things fell into place like puzzle pieces and after rerunning a few times and researching the errors I received, my docker file built fully.
+
+What I was curious about during this process was how to handle my environment variables like my API key for instance. I utilized initially to build and test but I am new to this service so Docker once again proved to be a really helpful tool. I learned from the Docker documentation that the ENV variable is essentially utilized like a local .env file and can run immediately so long as the user inputs their API key in the Dockerfile before building.
+> [ENV in Docker](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/)
+
+I also was able to reference my Day 1 studying about the [pip freeze feature](#notes-for-virtual-environment-management) to build my requirements.txt file easily.
+
+### Testing Docker Container
+
+After building and running successfully, I went to the OpenAI Playground website and tested the prompt provided to me in the instructions and boom, everything worked. I am so incredibly happy with the work I have done and the hours I have put in. I learned so much about so many topics and in such a short amount of time too. I tried to optimize my time after my 9-5 and balance my free time and family time with work and I managed to reach my goal. 
+
+This is only the beginning for me and that excites me even more. 
+
+### Project Wrap Up 🌱
+ 
+I learned quite a lot these past 2 weeks:
+
+- Reintroduction into python.
+- Webscraping, API handling and tons of libraries for efficiency and convenience
+- OpenAI in general - I was very unfamiliar with the Assistance feature and even just handling the vector store and creation elements.
+- Docker completely. This was the first time I have fully created a dockerized version of anything I have created.
+- Incorporating more personalization into my markdown. I wanted to have fun with this process and also get more comfortable with documentation syntax and such.
+
+This has been a wonderful yet intensely stressful experience and I am very proud of the work I put in. Thank you very much for reading through my learning log and I look forward to documenting more exciting work in the future!
+
+-J
 

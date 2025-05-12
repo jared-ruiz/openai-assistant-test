@@ -8,7 +8,7 @@ key = os.getenv("API_KEY_OPENAI")
 client = OpenAI(api_key=key)
 vs_id = os.getenv("VECTOR_STORE_ID")
 
-# use this to delete vector store after testing or troubleshooting
+# use this to delete vector store after testing or troubleshooting locally
 deleted_vector_store = client.vector_stores.delete(
     vector_store_id=vs_id
 )

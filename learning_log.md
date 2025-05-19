@@ -51,9 +51,9 @@ Fast forward today, where I have soley been focusing on web development and digi
 - I first created my python file titled <strong>webscraper.py</strong>, and set up my virtual environment. I already knew that it would be much more organized and convenient to have a requirements.txt accompanied with it easy cloning and use on the user's end.  
 
 ### Notes for Virtual Environment Management
-> <strong>Activating virtual enviornment:</strong> env\Scripts\activate
+> <strong>Activating virtual environment:</strong> env\Scripts\activate
 <br>
-> <strong>Deactivating virtual enviornment:</strong> deactivate
+> <strong>Deactivating virtual environment:</strong> deactivate
 <br>
 > <strong>List currently installed dependencies:</strong> pip list
 <br>
@@ -271,9 +271,9 @@ and
 docker run optisigns_test
 ```
 
-I immediately hit a road block with my python scripts. I initially was not creating them as function and simply as entire files to just be ran in command line. I had to systematically go back and adjust my work to allow for a main.py function to run everything I needed in one go. I revisited my assistant_create.py file and returned it's assistant_id to then pass into the assistant_run.py and so on. Things fell into place like puzzle pieces and after rerunning a few times and researching the errors I received, my docker file built fully.
+I immediately hit a road block with my python scripts. I initially was not creating them as functions but simply as entire files to just be ran in command line. I had to systematically go back and adjust my work to allow for a main.py function to run everything I needed in one go. I revisited my assistant_create.py file and returned it's assistant_id to then pass into the assistant_run.py and so on. Things fell into place like puzzle pieces and after rerunning a few times and researching the errors I received, my docker file built fully.
 
-What I was curious about during this process was how to handle my environment variables like my API key for instance. I utilized initially to build and test but I am new to this service so Docker once again proved to be a really helpful tool. I learned from the Docker documentation that the ENV variable is essentially utilized like a local .env file and can run immediately so long as the user inputs their API key in the Dockerfile before building.
+What I was curious about during this process was how to handle my environment variables like my API key for instance. I utilized it initially to build and test but I am new to this service so Docker once again proved to be a really helpful tool. I learned from the Docker documentation that the ENV variable is essentially utilized like a local .env file and can run immediately so long as the user inputs their API key in the Dockerfile before building.
 > [ENV in Docker](https://docs.docker.com/compose/how-tos/environment-variables/envvars-precedence/)
 
 I also was able to reference my Day 1 studying about the [pip freeze feature](#notes-for-virtual-environment-management) to build my requirements.txt file easily.

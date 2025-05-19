@@ -9,4 +9,4 @@ ADD webscraper.py assistant_run.py assistant_create.py vector_store_delete.py ma
 
 RUN pip install -r requirements.txt
 
-RUN ["python", "main.py"] 
+CMD ["python", "main.py"] 

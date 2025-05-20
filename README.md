@@ -1,4 +1,4 @@
-# **OptiSigns-Backend-Test** - Jared Ruiz
+# **OpenAI Assistant Test** - Jared Ruiz
 
 > This project was a ground up, 0-100 learning experience and I documented everything I learned and how I approached my problem solving here if you would like to read through my logs!
 
@@ -11,9 +11,9 @@ git pull
 ```
 <ins>For quick testing but unsafe practice:</ins> In Dockerfile -> Uncomment ENV variable and add your <Strong>OpenAI_API_KEY</Strong>.
 ```
-docker build -t optisigns_test .
+docker build -t openai_test .
 
-docker run optisigns_test
+docker run openai_test
 ```
 <ins>A safer method:</ins> Create a .env file at root and add in your api key:
 ```
@@ -24,7 +24,7 @@ API_KEY_OPENAI={insert your OpenAI API Key Here}
 
 Then, within your docker run command:
 ```
-docker run --env-file .env optisigns_test
+docker run --env-file .env openai_test
 ```
 
 After successful docker run, go to [OpenAI Playground](https://platform.openai.com/playground)  and input test prompt:

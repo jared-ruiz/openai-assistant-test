@@ -16,7 +16,7 @@ def run_Agent(assistant_id):
     print(f"Vector Store ID - {vector_store.id}")
 
     # upload all .md files
-    article_folder = "optisigns_articles"
+    article_folder = "tech_articles"
 
     file_paths = [
         os.path.join(article_folder, article)

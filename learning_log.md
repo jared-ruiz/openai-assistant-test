@@ -5,7 +5,7 @@
 - Deploy scraper and dockerize it
 
 ### Personal Thoughts Before Project
-- Prior to receiving this assignment, I had never worked with the OpenAI API at all, never touched Docker besides a few simple tasks required of me at my current work, and have not worked with Python that frequently due to my focus on MERN stack web development. This entire task posed a great challenge for me. I was graciously alloted 2 weeks to work on this assignment after my normal 9-5 hours and my goal is to do my absolute best, learn as fast and efficiently as possible and hopefully get a solid attempt in on this project.
+- Prior to attempting this project, I had never worked with the OpenAI API at all, never touched Docker besides a few simple tasks required of me at my current work, and have not worked with Python that frequently due to my focus on MERN stack web development. This entire task posed a great challenge for me. I alloted myself 2 weeks to work on this project after my normal 9-5 hours and my goal is to do my absolute best, learn as fast and efficiently as possible and hopefully get a solid attempt in on this project.
 
 ### Bare Minimum Expectations
 - Project plan
@@ -39,7 +39,7 @@ Realistically, I would want to wait until my web scrapper is complete before I D
 
 My previous experience with web scrapping was probably back when I was in college and my friend and I wanted a way to pull data off of our favorite gaming website to see our hiscores update daily. I had no coding experience besides some exposure to C through Harvard's free online course and I was not able to fully implement my vision.
 
-Fast forward today, where I have soley been focusing on web development and digital marketing, so this serves to be a fun and challenging reintroduction to what I had originally wanted to learn many years back.
+Fast forward today, where I have solely been focusing on web development and digital marketing, so this serves to be a fun and challenging reintroduction to what I had originally wanted to learn many years back.
 
 ### Learning Process Begins
 
@@ -78,7 +78,7 @@ I also thought ahead in finding a library that would help me translate the retur
 
 - After seeing how I could get this script to run how I want, I decided to just jump in head first and try and parse through the OptiSigns website. I realized this would require a lot more knowledge of the libraries I'm using and possibly more since I want to travel through all the assorted article links to their designated article pages, <strong>THEN</strong> extract the html from those pages and export them somehow into a folder locally. It seems there's a native library that can handle directory creation so I will try and use that.
 
-- After an hour or so of research and trial and error, it seems requests is not able to get the correct information from the website. It seems it's because OptiSigns is using a dynamically rendered site that simply does not allow requests to function on it's own. A stack overflow post suggests "selenium" to scrape the page but I decided to explore the option presented in the instructions utilizing Zendesk. With some work, I was able to return an array of article objects from OptiSigns zendesk api and that really helped me click things in my head. I havent done a lot of API calls with python so I would need to look up the structure online, which shouldn't be too far off from javascript's syntax.
+- After an hour or so of research and trial and error, it seems requests is not able to get the correct information from the website. It seems it's because OptiSigns.com is using a dynamically rendered site that simply does not allow requests to function on it's own. A stack overflow post suggests "selenium" to scrape the page but I decided to explore the option presented in the instructions utilizing Zendesk. With some work, I was able to return an array of article objects from OptiSign's zendesk api and that really helped me click things in my head. I havent done a lot of API calls with python so I would need to look up the structure online, which shouldn't be too far off from javascript's syntax.
 
 - I read through this [python api tutorial](https://www.geeksforgeeks.org/how-to-make-api-calls-using-python/) and structured my initial test similarly. I was able to return a lot of article data from the API endpoint and now that I know there is successful content being reached, I can figure out how to parse it and organize it properly. I'm imagining I can loop through the array of objects and somehow turn them into .md files with each pass.
 
@@ -130,7 +130,7 @@ The video focused on the <strong>os module</Strong> which allows you to interact
 
 I initially placed the makedirs() function in the loop but quickly realized it would want to create a new directory every loop and cause a lot of issues. I opted to place the directory creation right after returning the dictionary of articles, then go into the key value verification and begin returning the data.
 
-I managed to successfully create a directory titled "optisigns_articles" upon running. Big step toward writing markdown files into them.
+I managed to successfully create a directory titled "tech_articles" upon running. Big step toward writing markdown files into them.
 
 ### Dependencies Used
 - <Strong>slugify:</Strong> returns a text into one long word containing nothing but lower case ASCII characters and hyphens (-) 
@@ -149,13 +149,13 @@ I kept running into a <Strong>"FileNotFoundError:[Errno 2] No such file or direc
 
 ### Next Steps
 
-- One portion of the assignment is complete technically. I still need to learn docker, and to determine how to utilize the OpenAI integration that is requested, but I am closing in on the completion of this assignment. 
+- One portion of the project is technically complete. I still need to learn docker, and to determine how to utilize the OpenAI integration that is requested, but I am closing in on the completion of this project. 
 
-- Upon reading the next requirements, I need to somehow send my markdown files to a Vector Store. I will need to do some research on what that is and how I can manage that. I imagine it's similar to sending data back to the frontend in web development via POST request but I'll learn.
+- I need to somehow send my markdown files to a Vector Store. I will need to do some research on what that is and how I can manage that. I imagine it's similar to sending data back to the frontend in web development via POST request but I'll learn.
 
 ### End of Day 2 - Thoughts 💡
 
-This was a very fulfilling day of learning. I got to utilize slugify and markdownify finally, and I managed to break through a wall I was hitting for an hour or so through research and a lot of questioning. Seeing the articles populate in my project directory felt very cathartic, I can't deny that. I really enjoy solving these problems I am facing. There are a lot of resources online and a lot of advice to follow when stuck and it truly feels like I can accomplish anything given enough time to organize my thoughts, approach the problem from different angles, and really focus. I'm excited to be approaching the midway point of this assignment and I hope to get it done soon for submission! I have been working with React and JSX a lot lately so touching python has been refreshing. I love the simple syntax and the libraries are incredibly useful. Knowing which ones to use on the other hand, requires a lot of research but I'm sure that comes with time and varying use cases. 
+This was a very fulfilling day of learning. I got to utilize slugify and markdownify finally, and I managed to break through a wall I was hitting for an hour or so through research and a lot of questioning. Seeing the articles populate in my project directory felt very cathartic, I can't deny that. I really enjoy solving these problems I am facing. There are a lot of resources online and a lot of advice to follow when stuck and it truly feels like I can accomplish anything given enough time to organize my thoughts, approach the problem from different angles, and really focus. I'm excited to be approaching the midway point of this project and I hope to get it done soon for submission! I have been working with React and JSX a lot lately so touching python has been refreshing. I love the simple syntax and the libraries are incredibly useful. Knowing which ones to use on the other hand, requires a lot of research but I'm sure that comes with time and varying use cases. 
 
 ## Day 3 - OpenAI Vector Store
 Today I am beginning my introduction to OpenAI's Assistant feature. I began by following the link provided in the instructions and upgraded to the paid tier for this instance only. I have never utilized this service or any of the paid features OpenAI has offered so I needed some time to read through what this specific feature does and how to get the solution I need. 
@@ -241,7 +241,7 @@ I'm almost to the end and I'm so excited! Docker here I come.
 
 ### Goals for Today
 - Learn how to implement Docker into my project
-- Create docker file to delete current optisigns_article directory and remove existing vector stores
+- Create docker file to delete current tech_articles directory and remove existing vector stores
 - Finish project and document installation via README.md
 
 ### How to Add Docker to Project
@@ -262,13 +262,13 @@ I was very surprised at how streamlined things felt
 I decided to test what I currently have by running the boiler plate:
 
 ```
-docker build -t optisigns_test .
+docker build -t openai_test .
 ```
 
 and 
 
 ```
-docker run optisigns_test
+docker run openai_test
 ```
 
 I immediately hit a road block with my python scripts. I initially was not creating them as functions but simply as entire files to just be ran in command line. I had to systematically go back and adjust my work to allow for a main.py function to run everything I needed in one go. I revisited my assistant_create.py file and returned it's assistant_id to then pass into the assistant_run.py and so on. Things fell into place like puzzle pieces and after rerunning a few times and researching the errors I received, my docker file built fully.

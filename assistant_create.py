@@ -19,7 +19,7 @@ def create_Assistant():
     """
 
     assistant = client.beta.assistants.create(
-        name= "OptiSigns Backend Test",
+        name= "OpenAI Assistant Backend Test",
         description= description,
         # instructions= instructions,
         model= "gpt-4o",

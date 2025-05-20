@@ -27,7 +27,7 @@ def article_Markdown():
     article_data = get_articles()
     
     # create directory for articles 
-    directory_name = "optisigns_articles"
+    directory_name = "tech_articles"
     os.makedirs(directory_name, exist_ok=True)
 
     # this checks to see if there is actually a dictionary returned and it contains the article key too. Should loop 30 times minimum
